@@ -23,6 +23,7 @@ pipeline{
         }
         stage('Quality Gate'){
             steps{
+                sleep(5)
                 timeout(1) {
                     waitForQualityGate abortPipeline: true, credentialsId: 'sonar_token'
                 }
